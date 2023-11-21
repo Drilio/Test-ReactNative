@@ -181,76 +181,78 @@ const QuizScreen = ({ navigation }) => {
     "Targets the audience"
   ],
   "correctAnswer": "Highlights important information"
-},{
-  "questionText": "En quoi le choix de la typographie peut-il influencer la perception d'un document ou d'un design?",
-  "answerOptions": [
-    "Elle évoque un sens psychologique",
-    "Elle évoque des émotions, renforce le message et contribue à l’identité visuelle",
-    "Elle ne joue pas de rôle dans la perception d’un design",
-    "Elle joue un rôle en fonction de sa taille"
-  ],
-  "correctAnswer": "Elle évoque des émotions, renforce le message et contribue à l’identité visuelle"
 },
 {
-  "questionText": "Quelles sont les considérations importantes lors du choix de la typographie pour un site web?",
+  "questionText": "How can the choice of typography influence the perception of a document or design?",
   "answerOptions": [
-    "LA lisibilité, la compatibilité avec les navigateurs et la cohérence avec la marque",
-    "La lisibilité et la beauté de la typographie",
-    "La cohérence avec l’identité de la marque",
-    "Sa taille et sa couleur finale"
+    "It evokes a psychological sense",
+    "It evokes emotions, reinforces the message, and contributes to the visual identity",
+    "It does not play a role in the perception of a design",
+    "It plays a role depending on its size"
   ],
-  "correctAnswer": "LA lisibilité, la compatibilité avec les navigateurs et la cohérence avec la marque"
+  "correctAnswer": "It evokes emotions, reinforces the message, and contributes to the visual identity"
 },
 {
-  "questionText": "Comment le choix de la typographie peut-il être adapté pour susciter un sentiment de confiance dans un contexte professionnel?",
+  "questionText": "What are the important considerations when choosing typography for a website?",
   "answerOptions": [
-    "Des polices classiques uniquement",
-    "Peu importe tant que ça reflète une marque",
-    "Il existe 5 typographies qui font professionnelles",
-    "Des polices classiques et équilibrées"
+    "Readability, compatibility with browsers, and consistency with the brand",
+    "Readability and the beauty of typography",
+    "Consistency with the identity of the brand",
+    "Size and final color"
   ],
-  "correctAnswer": "Des polices classiques et équilibrées"
+  "correctAnswer": "Readability, compatibility with browsers, and consistency with the brand"
 },
 {
-  "questionText": "Pourquoi la lisibilité sur différents supports et tailles d'écran est-elle cruciale dans le choix de la typographie pour le design web?",
+  "questionText": "How can the choice of typography be adapted to evoke a sense of trust in a professional context?",
   "answerOptions": [
-    "Elle doit juste s’adapter à l’écran sur lequel on travaille",
-    "La taille doit être juste assez grande pour que ce soit lisible",
-    "La typographie s’adapte toute seule selon les écrans",
-    "Elle est importante car elle doit s’adapter aux différents supports"
+    "Only classic fonts",
+    "It doesn't matter as long as it reflects a brand",
+    "There are 5 typographies that look professional",
+    "Classic and balanced fonts"
   ],
-  "correctAnswer": "Elle est importante car elle doit s’adapter aux différents supports"
+  "correctAnswer": "Classic and balanced fonts"
 },
 {
-  "questionText": "Pourquoi le storytelling est-il considéré comme un outil puissant dans la communication d'une marque ou d'une entreprise?",
+  "questionText": "Why is readability on different screens and screen sizes crucial in choosing typography for web design?",
   "answerOptions": [
-    "Il est important pour créer une connexion émotionnelle avec le public",
-    "Le public aime tout simplement les histoires",
-    "Grâce au storytelling on peut créer plus de publications",
-    "C’est juste un phénomène de mode"
+    "It just has to adapt to the screen being worked on",
+    "The size must be just large enough to be readable",
+    "Typography adapts itself automatically to screens",
+    "It is important because it must adapt to different supports"
   ],
-  "correctAnswer": "Il est important pour créer une connexion émotionnelle avec le public"
+  "correctAnswer": "It is important because it must adapt to different supports"
 },
 {
-  "questionText": "En quoi le storytelling peut-il aider à établir une connexion émotionnelle avec le public cible?",
+  "questionText": "Why is storytelling considered a powerful tool in the communication of a brand or company?",
   "answerOptions": [
-    "En faisant pleurer le public",
-    "En suscitant des émotions qui permettent aux clients d’acheter",
-    "En suscitant des émotions positives qui rendent le public heureux",
-    "En suscitant des émotions authentiques permettant au public de s’identifier"
+    "It is important to create an emotional connection with the audience",
+    "The audience simply loves stories",
+    "Through storytelling, more publications can be created",
+    "It's just a trend"
   ],
-  "correctAnswer": "En suscitant des émotions authentiques permettant au public de s’identifier"
+  "correctAnswer": "It is important to create an emotional connection with the audience"
 },
 {
-  "questionText": "Comment le storytelling peut-il être utilisé pour différencier une entreprise dans un marché concurrentiel?",
+  "questionText": "How can storytelling help establish an emotional connection with the target audience?",
   "answerOptions": [
-    "En racontant une fausse histoire qui véhicule des émotions fortes",
-    "En racontant une histoire unique qui la différencie de ses concurrents",
-    "En montrant qu’elle n’est pas comme ses concurrents",
-    "En montrant que l’entreprise est la meilleure"
+    "By making the audience cry",
+    "By eliciting emotions that enable customers to make purchases",
+    "By eliciting positive emotions that make the audience happy",
+    "By eliciting authentic emotions that allow the audience to identify"
   ],
-  "correctAnswer": "En racontant une histoire unique qui la différencie de ses concurrents"
-}                                    
+  "correctAnswer": "By eliciting authentic emotions that allow the audience to identify"
+},
+{
+  "questionText": "How can storytelling be used to differentiate a company in a competitive market?",
+  "answerOptions": [
+    "By telling a false story that conveys strong emotions",
+    "By telling a unique story that differentiates it from its competitors",
+    "By showing that it is not like its competitors",
+    "By showing that the company is the best"
+  ],
+  "correctAnswer": "By telling a unique story that differentiates it from its competitors"
+}
+
     // Add more questions as needed
   ];
 
