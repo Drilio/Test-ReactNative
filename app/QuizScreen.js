@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Button, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableHighlight } from 'react-native';
 
 const QuizScreen = ({ navigation }) => {
   const questions = [
@@ -11,6 +11,7 @@ const QuizScreen = ({ navigation }) => {
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [score, setScore] = useState(0);
   const [solved, setSolved] = useState(false);
+  const [answer, setAnswer] = useState(null);
 
   // Function to pick a random question
   const pickRandomQuestion = () => {
@@ -23,18 +24,18 @@ const QuizScreen = ({ navigation }) => {
     pickRandomQuestion();
   }, []);
 
-  const handleAnswerOptionClick = (answer) => {
+  const handleAnswerOptionClick = (selectedAnswer) => {
     const correctAnswer = currentQuestion.correctAnswer;
-    if (answer === correctAnswer) {
-      setScore(score + 1);
-    }
+    setAnswer(selectedAnswer);
     setSolved(true);
   };
+  
 
   const resetQuiz = () => {
     pickRandomQuestion(); // Pick a new random question
     setScore(0);
     setSolved(false);
+    setAnswer(null);
   };
 
   return (
@@ -42,17 +43,39 @@ const QuizScreen = ({ navigation }) => {
       {currentQuestion && (
         <>
           <Text>{currentQuestion.questionText}</Text>
-          {currentQuestion.answerOptions.map((answerOption) => (
-            <Button key={answerOption} title={answerOption} onPress={() => handleAnswerOptionClick(answerOption)} />
+          {currentQuestion.answerOptions.map((answerOption, index) => (
+  <TouchableHighlight
+  key={index}
+  onPress={() => handleAnswerOptionClick(answerOption)}
+  style={{
+    backgroundColor: solved && answerOption === currentQuestion.correctAnswer
+      ? "#7be25b" // Correct answer
+      : solved && answerOption === answer
+        ? "#f0222b" // Incorrect answer
+        : "#cfcdcc", // Default color
+    padding: 10,
+    margin: 5,
+    borderRadius: 5,
+  }}
+  disabled={solved}
+>
+  <Text>{answerOption}</Text>
+</TouchableHighlight>
           ))}
           {solved && (
-            <TouchableOpacity
+            <TouchableHighlight
               onPress={() => {
                 resetQuiz();
               }}
+              style={{
+                backgroundColor: "#cfcdcc",
+                padding: 10,
+                margin: 5,
+                borderRadius: 5,
+              }}
             >
               <Text>Next Question</Text>
-            </TouchableOpacity>
+            </TouchableHighlight>
           )}
         </>
       )}
