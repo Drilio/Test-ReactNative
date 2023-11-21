@@ -7,8 +7,12 @@ import {
   StyleSheet,
   Animated,
 } from "react-native";
+import { useFonts } from 'expo-font';
 
 const Welcome = ({ navigation }) => {
+  const [fontsLoaded] = useFonts({
+    'JockeyOne-Regular.ttf': require('../assets/fonts/JockeyOne-Regular.ttf'),
+  });
   const [fadeAnim, setFadeAnim] = useState(new Animated.Value(1));
   const [progress, setProgress] = useState(new Animated.Value(0));
   const startQuiz = () => {
@@ -76,8 +80,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   text: {
+    fontFamily: "JockeyOne-Regular",
     textAlign: "center",
-    fontSize: 25,
+    fontSize: 85,
     fontWeight: "bold",
     color: "#ffffff",
   },
@@ -99,4 +104,5 @@ const styles = StyleSheet.create({
     letterSpacing: 1.1,
   },
 });
+
 export default Welcome;
