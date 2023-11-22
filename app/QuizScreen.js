@@ -333,13 +333,12 @@ const QuizScreen = () => {
                           resetQuiz();
                         }}
                         style={{
-                          backgroundColor: "#cfcdcc",
                           padding: 10,
                           margin: 5,
                           borderRadius: 5,
                         }}
                     >
-                      <Text>Next Question</Text>
+                      <Text style={styles.next}>Next Question</Text>
                     </TouchableHighlight>
                 )}
               </>
@@ -368,6 +367,17 @@ const styles = StyleSheet.create({
     backgroundColor: "2b265d",
     fontFamily: 'JockeyOne_400Regular',
     color : "#ffffff"
+  },
+  next: {
+    padding: 10,
+    margin: 5,
+    borderRadius: 50,
+    borderStyle: "solid",
+    borderColor:"#ffffff",
+    borderWidth: 3,
+    backgroundColor: "#ffffff",
+    color:"#2b265d",
+    alignSelf: "center"
   }
 });
 export default QuizScreen;
