@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   View,
-  Text,
   Image,
   TouchableOpacity,
   StyleSheet,
@@ -42,9 +41,7 @@ const Welcome = ({ navigation }) => {
   let [fontsLoaded] = useFonts({
     JockeyOne_400Regular,
   });
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }else{
+
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/background-welcome.png')}
@@ -59,12 +56,12 @@ const Welcome = ({ navigation }) => {
         }}
         style={styles.btn}
       >
-        <Image source={require('../assets/button-main.png')} style={styles.btnText}></Image>
+        <Image source={require('../assets/button-main.png')}></Image>
       </TouchableOpacity>
         </View>
       </ImageBackground>
     </View>
-  );}
+  );
 };
 
 const styles = StyleSheet.create({
@@ -90,12 +87,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 150,
   },
-  btnText: {
-    fontSize: 20,
-    textAlign: "center",
-    color: "#ffffff",
-    letterSpacing: 1.1,
-  },
+
 });
 
 export default Welcome;

@@ -290,9 +290,7 @@ const QuizScreen = () => {
   let [fontsLoaded] = useFonts({
     JockeyOne_400Regular,
   });
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }else {
+
     return (
         <View>
           <ImageBackground source={require('../assets/background-questions.png')}
@@ -310,16 +308,16 @@ const QuizScreen = () => {
                         key={index}
                         onPress={() => handleAnswerOptionClick(answerOption)}
                         style={{
-                          backgroundColor: solved && answerOption === currentQuestion.correctAnswer
-                              ? "#7be25b" // Correct answer
-                              : solved && answerOption === answer
-                                  ? "#f0222b" // Incorrect answer
-                                  : "#2b265d", // Default color
+                          backgroundColor:"#2b265d", // Default color
                           padding: 10,
                           margin: 5,
                           borderRadius: 50,
                           borderStyle: "solid",
-                          borderColor:"#ffffff",
+                          borderColor: solved && answerOption === currentQuestion.correctAnswer
+                              ? "#7be25b" // Correct answer
+                              : solved && answerOption === answer
+                                  ? "#f0222b" // Incorrect answer
+                                  : "#ffffff", // Default color,
                           borderWidth: 3,
                         }}
                         disabled={solved}
@@ -347,7 +345,7 @@ const QuizScreen = () => {
         </View>
     );
 
-  }};
+  };
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -364,7 +362,7 @@ const styles = StyleSheet.create({
     fontFamily: 'JockeyOne_400Regular',
   },
   btn: {
-    backgroundColor: "2b265d",
+    backgroundColor: "#2b265d",
     fontFamily: 'JockeyOne_400Regular',
     color : "#ffffff"
   },

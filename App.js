@@ -4,7 +4,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import QuizScreen from './app/QuizScreen';
 import Welcome from "./app/Welcome";
 import { useFonts, JockeyOne_400Regular } from '@expo-google-fonts/jockey-one';
-import AppLoading from "expo-app-loading";
 
 const Stack = createStackNavigator();
 
@@ -14,9 +13,8 @@ const App = () => {
         JockeyOne_400Regular,
     });
 
- if (!fontsLoaded) {
-     return <AppLoading />;
- }else{
+
+
      return (
          <NavigationContainer>
              <Stack.Navigator initialRouteName="Welcome">
@@ -29,9 +27,6 @@ const App = () => {
              </Stack.Navigator>
          </NavigationContainer>
      );
-
- }
-
 }
 
 export default App;
