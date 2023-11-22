@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
+import {View, Text, TouchableHighlight, ImageBackground, StyleSheet} from 'react-native';
+import { useFonts, JockeyOne_400Regular} from "@expo-google-fonts/jockey-one";
+import AppLoading from "expo-app-loading";
 
-const QuizScreen = ({ navigation }) => {
+const QuizScreen = () => {
   const questions = [
     { questionText: 'What is a brand style guide ?', answerOptions: ["A document that defines the visual elements", "a graphical charter", "A specification", "A guide to be swag"], correctAnswer: "A document that defines the visual elements" },
     { questionText: 'What are the main components of a brand style guide?', answerOptions: ["the colour palette","The logo and pictures","Logo, color palette, typography, images, voice tones","The price of the brand"], correctAnswer:"Logo, color palette, typography, images, voice tones"},
@@ -285,50 +287,87 @@ const QuizScreen = ({ navigation }) => {
     setSolved(false);
     setAnswer(null);
   };
+  let [fontsLoaded] = useFonts({
+    JockeyOne_400Regular,
+  });
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }else {
+    return (
+        <View>
+          <ImageBackground source={require('../assets/background-questions.png')}
+                           resizeMode="cover"
+                           style={{
+                             width: '100%',
+                             height: '100%'}}
+          >
 
-  return (
-    <View>
-      {currentQuestion && (
-        <>
-          <Text>{currentQuestion.questionText}</Text>
-          {currentQuestion.answerOptions.map((answerOption, index) => (
-  <TouchableHighlight
-  key={index}
-  onPress={() => handleAnswerOptionClick(answerOption)}
-  style={{
-    backgroundColor: solved && answerOption === currentQuestion.correctAnswer
-      ? "#7be25b" // Correct answer
-      : solved && answerOption === answer
-        ? "#f0222b" // Incorrect answer
-        : "#cfcdcc", // Default color
-    padding: 10,
-    margin: 5,
-    borderRadius: 5,
-  }}
-  disabled={solved}
->
-  <Text>{answerOption}</Text>
-</TouchableHighlight>
-          ))}
-          {solved && (
-            <TouchableHighlight
-              onPress={() => {
-                resetQuiz();
-              }}
-              style={{
-                backgroundColor: "#cfcdcc",
-                padding: 10,
-                margin: 5,
-                borderRadius: 5,
-              }}
-            >
-              <Text>Next Question</Text>
-            </TouchableHighlight>
+          {currentQuestion && (
+              <>
+                <Text style={styles.text}>{currentQuestion.questionText}</Text>
+                {currentQuestion.answerOptions.map((answerOption, index) => (
+                    <TouchableHighlight
+                        key={index}
+                        onPress={() => handleAnswerOptionClick(answerOption)}
+                        style={{
+                          backgroundColor: solved && answerOption === currentQuestion.correctAnswer
+                              ? "#7be25b" // Correct answer
+                              : solved && answerOption === answer
+                                  ? "#f0222b" // Incorrect answer
+                                  : "#2b265d", // Default color
+                          padding: 10,
+                          margin: 5,
+                          borderRadius: 50,
+                          borderStyle: "solid",
+                          borderColor:"#ffffff",
+                          borderWidth: 3,
+                        }}
+                        disabled={solved}
+                    >
+                      <Text style={styles.btn}>{answerOption}</Text>
+                    </TouchableHighlight>
+                ))}
+                {solved && (
+                    <TouchableHighlight
+                        onPress={() => {
+                          resetQuiz();
+                        }}
+                        style={{
+                          backgroundColor: "#cfcdcc",
+                          padding: 10,
+                          margin: 5,
+                          borderRadius: 5,
+                        }}
+                    >
+                      <Text>Next Question</Text>
+                    </TouchableHighlight>
+                )}
+              </>
           )}
-        </>
-      )}
-    </View>
-  );
-};
+          </ImageBackground>
+        </View>
+    );
 
+  }};
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItem: "center",
+    justifyContent: "flex-end",
+    color: "#ffffff"
+  },
+  text: {
+    marginTop: 60,
+    marginLeft: 15,
+    marginRight: 5,
+    flex:0.6,
+    color:"#ffffff",
+    fontFamily: 'JockeyOne_400Regular',
+  },
+  btn: {
+    backgroundColor: "2b265d",
+    fontFamily: 'JockeyOne_400Regular',
+    color : "#ffffff"
+  }
+});
 export default QuizScreen;
