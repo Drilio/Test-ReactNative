@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import {
   View,
-  Text,
   Image,
   TouchableOpacity,
   StyleSheet,
   Animated,
+    ImageBackground
 } from "react-native";
+import { useFonts, JockeyOne_400Regular} from "@expo-google-fonts/jockey-one";
+import AppLoading from "expo-app-loading";
 
 const Welcome = ({ navigation }) => {
   const [fadeAnim, setFadeAnim] = useState(new Animated.Value(1));
@@ -36,13 +38,17 @@ const Welcome = ({ navigation }) => {
       useNativeDriver: false,
     }).start();
   };
+  let [fontsLoaded] = useFonts({
+    JockeyOne_400Regular,
+  });
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>THE</Text>
-      <Image style={styles.image} source={require("../assets/Welcome.png")} />
-      <View style={styles.subContainer}>
-        <Text style={styles.text}>PRODUCTION</Text>
-      </View>
+      <ImageBackground source={require('../assets/background-welcome.png')}
+      resizeMode="cover"
+      style={{width: '100%', height: '100%'}}
+      >
+        <View style={styles.container}>
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("Quiz");
@@ -50,8 +56,10 @@ const Welcome = ({ navigation }) => {
         }}
         style={styles.btn}
       >
-        <Text style={styles.btnText}>Ask me a Question !</Text>
+        <Image source={require('../assets/button-main.png')}></Image>
       </TouchableOpacity>
+        </View>
+      </ImageBackground>
     </View>
   );
 };
@@ -59,44 +67,27 @@ const Welcome = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#38588b",
     alignItem: "center",
-    justifyContent: "center",
+    justifyContent: "flex-end",
   },
   image: {
     width: "100%",
     height: 350,
     resizeMode: "contain",
   },
-  subContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItem: "center",
-    marginVertical: 20,
-    marginHorizontal: 20,
-  },
-  text: {
-    textAlign: "center",
-    fontSize: 25,
-    fontWeight: "bold",
-    color: "#ffffff",
+  img: {
+    height: 'screenHeight',
+    width: 'screenWidth',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   btn: {
-    // backgroundColor: "#d5bf96",
-    backgroundColor: "#fac782",
-    paddingHorizontal: 5,
-    paddingVertical: 15,
+    flexDirection:"column-reverse",
     // width: "50%",
-    position: "relative",
-    borderRadius: 15,
-    marginHorizontal: 20,
     alignItems: "center",
+    marginBottom: 150,
   },
-  btnText: {
-    fontSize: 20,
-    textAlign: "center",
-    color: "#ffffff",
-    letterSpacing: 1.1,
-  },
+
 });
+
 export default Welcome;
